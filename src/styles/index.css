@@ -13,3 +13,47 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.rotateElement::before {
+  transform: rotate(40deg);
+}
+
+.burger {
+  @apply absolute hidden place-items-center gap-2 right-10 cursor-pointer md:grid
+}
+
+.burger.active span:nth-child(1) {
+  @apply top-2 rotate-[220deg]
+}
+
+.burger.active span:nth-child(2) {
+  @apply translate-x-[500%]
+}
+
+.burger.active span:nth-child(3) {
+  @apply bottom-3 -rotate-[220deg]
+}
+
+.burger::before {
+  content: 'Aulas';
+  position: absolute;
+  left: -75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.burger span {
+  @apply relative w-10 h-[2px] bg-blue-500 pointer-events-none;
+
+  transition: 0.2s linear;
+}
+
+@media screen and (max-width: 768px) {
+  .active_sidebar {
+    @apply !block absolute right-0 z-[60] h-full overflow-y-scroll pb-40
+  }
+
+  .overlay {
+    @apply absolute max-w-[100vw] w-full min-h-screen backdrop-brightness-[0.3] z-50;
+  }
+}
