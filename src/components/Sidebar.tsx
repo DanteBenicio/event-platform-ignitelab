@@ -22,7 +22,17 @@ interface Lesson {
   lessonType: 'live' | 'class'
 }
 
-export default function Sidebar() {
+interface SidebarProps {
+  breakpoint: boolean
+  openBurger: boolean
+  sidebarRef?: React.MutableRefObject<any>
+}
+
+interface GetLessonsQueryResponse {
+  lessons: Lesson[]
+}
+
+export default function Sidebar({ breakpoint, openBurger, sidebarRef }: SidebarProps) {
   const { data } = useQuery<GetLessonsQueryResponse>(GET_LESSONS_QUERY)
 
   return (
