@@ -36,7 +36,7 @@ export default function Sidebar({ breakpoint, openBurger, sidebarRef }: SidebarP
   const { data } = useQuery<GetLessonsQueryResponse>(GET_LESSONS_QUERY)
 
   return (
-    <aside className="w-[348px] bg-gray-700 p-6 border-l border-gray-600">
+    <aside ref={sidebarRef} className={`max-w-[348px] w-full bg-gray-700 p-6 border-l border-gray-600 md:hidden ${openBurger ? 'active_sidebar' : ''}`}>
       <span className="block font-bold text-2xl pb-6 mb-6 border-b border-gray-500">
         Cronograma de Aulas
       </span>
