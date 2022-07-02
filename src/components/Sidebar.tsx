@@ -14,14 +14,12 @@ const GET_LESSONS_QUERY = gql`
   }
 `
 
-interface GetLessonsQueryResponse {
-  lessons: {
-    id: string
-    title: string
-    slug: string
-    availableAt: string
-    lessonType: 'live' | 'class'
-  }[]
+interface Lesson {
+  id: string
+  title: string
+  slug: string
+  availableAt: string
+  lessonType: 'live' | 'class'
 }
 
 export default function Sidebar() {
